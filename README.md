@@ -1,4 +1,6 @@
 # Vofog Game Engine
+
+![SS1](https://github.com/Compiler/Vofog-Game-Engine/blob/master/Vofog-Game-Engine/Vofog/ss/ss1.PNG)
 ## Public version of Vofog Engine (in development)
 
 Vofog is a game engine that is focused on lightweight and fast development to test/launch feutures quickly.
@@ -22,3 +24,4 @@ Vofog is a game engine that is focused on lightweight and fast development to te
 - Fully programmable shader stack
   - GPU pipeline modifiable (limited due to OpenGL context)
 
+![SS1](https://github.com/Compiler/Vofog-Game-Engine/blob/master/Vofog-Game-Engine/Vofog/ss/ss2.PNG)

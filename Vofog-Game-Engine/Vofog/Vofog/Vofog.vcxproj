@@ -1,0 +1,402 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Final|x64">
+      <Configuration>Final</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Development|x64">
+      <Configuration>Development</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{63944A0F-EB79-4190-BC12-41118858F250}</ProjectGuid>
+    <RootNamespace>Vofog</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>VofogTesting</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Development|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Final|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Development|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Final|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(SolutionDir)bin\$(Configuration)-Windows-x64\Sandbox</OutDir>
+    <IntDir>$(SolutionDir)intermediate-bin\$(Configuration)-windows-x64\$(ProjectName)</IntDir>
+    <TargetName>VofogEngine</TargetName>
+    <TargetExt>.dll</TargetExt>
+    <IncludePath>$(SolutionDir)outsourced\glfw\include\;$(SolutionDir)Vofog\source\;$(SolutionDir)outsourced\GLAD\include\;$(IncludePath);$(SolutionDir)outsourced\spdlog\include</IncludePath>
+    <LibraryPath>$(SolutionDir)outsourced\glfw\lib-vc2017;$(SolutionDir)outsourced\bullet\libs;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Final|x64'">
+    <OutDir>$(SolutionDir)bin\$(Configuration)-Windows-x64\Sandbox</OutDir>
+    <IntDir>$(SolutionDir)intermediate-bin\$(Configuration)-windows-x64\$(ProjectName)</IntDir>
+    <TargetName>VofogEngine</TargetName>
+    <TargetExt>.dll</TargetExt>
+    <IncludePath>$(SolutionDir)outsourced\glfw\include\;$(SolutionDir)Vofog\source\;$(IncludePath);$(SolutionDir)outsourced\GLAD\include\;$(SolutionDir)outsourced\spdlog\include;$(SolutionDir)outsourced\imgui;$(SolutionDir)outsourced\imgui</IncludePath>
+    <LibraryPath>$(SolutionDir)outsourced\glfw\lib-vc2017;$(LibraryPath);$(SolutionDir)outsourced\bullet\libs</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Development|x64'">
+    <OutDir>$(SolutionDir)bin\$(Configuration)-Windows-x64\Sandbox</OutDir>
+    <IntDir>$(SolutionDir)intermediate-bin\$(Configuration)-windows-x64\$(ProjectName)</IntDir>
+    <TargetName>VofogEngine</TargetName>
+    <TargetExt>.dll</TargetExt>
+    <IncludePath>$(SolutionDir)outsourced\glfw\include\;$(SolutionDir)Vofog\source\;$(IncludePath);$(SolutionDir)outsourced\GLAD\include\;$(SolutionDir)outsourced\spdlog\include;$(SolutionDir)outsourced\imgui;$(SolutionDir)outsourced\imgui</IncludePath>
+    <LibraryPath>$(SolutionDir)outsourced\glfw\lib-vc2017;$(LibraryPath);$(SolutionDir)outsourced\bullet\libs</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <PreprocessorDefinitions>_SILENCE_CXX17_STRSTREAM_DEPRECATION_WARNING;_SILENCE_CXX17_STRSTREAM_DEPRECATION_WARNING;_CRT_SECURE_NO_WARNINGS;VOFOG_LIBRARY;VOFOG_DEBUG_BUILD;VOFOG_LIBRARY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <AdditionalIncludeDirectories>$(SolutionDir)outsourced\spdlog\include;$(SolutionDir)outsourced\glm;$(SolutionDir)Vofog\source\external code;$(SolutionDir)outsourced\cereal;$(SolutionDir)outsourced\bullet\src;$(SolutionDir)outsourced\Lua535\include;$(SolutionDir)outsourced\sol;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>vpch.h</PrecompiledHeaderFile>
+      <ForcedIncludeFiles>
+      </ForcedIncludeFiles>
+      <BasicRuntimeChecks>UninitializedLocalUsageCheck</BasicRuntimeChecks>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>Comdlg32.lib;gdi32.lib;shell32.lib;glfw3.lib;OpenGL32.lib;BulletCollision_Debug.lib;BulletDynamics_Debug.lib;LinearMath_Debug.lib;Lua53.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)outsourced\bullet\libs;$(SolutionDir)outsourced\glfw\lib-vc2017;$(SolutionDir)outsourced\GLAD\src;$(SolutionDir)outsourced\Lua535\;$(SolutionDir)outsourced\sol</AdditionalLibraryDirectories>
+      <Profile>true</Profile>
+      <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Development|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <PreprocessorDefinitions>_SILENCE_CXX17_STRSTREAM_DEPRECATION_WARNING;_CRT_SECURE_NO_WARNINGS;VOFOG_LIBRARY;VOFOG_DEVELOPMENT_BUILD;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(SolutionDir)outsourced\spdlog\include;$(SolutionDir)outsourced\glm;$(SolutionDir)Vofog\source\external code;$(SolutionDir)outsourced\cereal;$(SolutionDir)outsourced\bullet\src;$(SolutionDir)outsourced\Lua535\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>vpch.h</PrecompiledHeaderFile>
+      <ForcedIncludeFiles>
+      </ForcedIncludeFiles>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>Comdlg32.lib;gdi32.lib;shell32.lib;glfw3.lib;OpenGL32.lib;BulletCollision_Debug.lib;BulletDynamics_Debug.lib;LinearMath_Debug.lib;Lua53.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)outsourced\bullet\libs;$(SolutionDir)outsourced\glfw\lib-vc2017;$(SolutionDir)outsourced\GLAD\src;$(SolutionDir)outsourced\Lua535\</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Final|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <PreprocessorDefinitions>_SILENCE_CXX17_STRSTREAM_DEPRECATION_WARNING;_CRT_SECURE_NO_WARNINGS;VOFOG_LIBRARY;VOFOG_FINAL_BUILD;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(SolutionDir)outsourced\spdlog\include;$(SolutionDir)outsourced\glm;$(SolutionDir)Vofog\source\external code;$(SolutionDir)outsourced\cereal;$(SolutionDir)outsourced\bullet\src;$(SolutionDir)outsourced\Lua535\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>vpch.h</PrecompiledHeaderFile>
+      <ForcedIncludeFiles>
+      </ForcedIncludeFiles>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>Comdlg32.lib;gdi32.lib;shell32.lib;glfw3.lib;OpenGL32.lib;BulletCollision_Debug.lib;BulletDynamics_Debug.lib;LinearMath_Debug.lib;Lua53.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)outsourced\bullet\libs;$(SolutionDir)outsourced\glfw\lib-vc2017;$(SolutionDir)outsourced\GLAD\src;$(SolutionDir)outsourced\Lua535\</AdditionalLibraryDirectories>
+      <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="source\Entity Component System\Components\ScriptComponent.h" />
+    <ClInclude Include="source\Entity Component System\Systems\Application\ScriptingSystem.h" />
+    <ClInclude Include="source\tools\Assets\ModelLoader.h" />
+    <ClInclude Include="source\Entity Component System\Systems\Application\PhysicsSystem.h" />
+    <ClInclude Include="source\Entity Component System\Components\Component.h" />
+    <ClInclude Include="source\Entity Component System\Entity.h" />
+    <ClInclude Include="source\Entity Component System\EntityManager.h" />
+    <ClInclude Include="source\Entity Component System\Components\PhysicsComponent.h" />
+    <ClInclude Include="source\Entity Component System\Components\RenderableComponent.h" />
+    <ClInclude Include="source\Entity Component System\Systems\Editor\MovementSystem.h" />
+    <ClInclude Include="source\Entity Component System\Systems\Editor\ObjectPickingSystem.h" />
+    <ClInclude Include="source\Entity Component System\Systems\EntitySystem.h" />
+    <ClInclude Include="source\Entity Component System\Components\TransformComponent.h" />
+    <ClInclude Include="source\EntityComponentSystem\GameObject.h" />
+    <ClInclude Include="source\Rendering\Renderables\InternalTexture.h" />
+    <ClInclude Include="source\Physics\RayOBBFactory.h" />
+    <ClInclude Include="source\PlatformSpecific\OSFileSystem.h" />
+    <ClInclude Include="source\Rendering\Renderables\ShaderAbstractions\Light.h" />
+    <ClInclude Include="source\Rendering\Renderables\Material.h" />
+    <ClInclude Include="source\Rendering\Renderables\ShaderAbstractions\PointLight.h" />
+    <ClInclude Include="source\Rendering\Renderers\BaseRenderer.h" />
+    <ClInclude Include="source\Rendering\Renderers\BulletDebugRenderer.h" />
+    <ClInclude Include="source\Rendering\Renderers\MeshRenderer.h" />
+    <ClInclude Include="source\Rendering\TextureHandler.h" />
+    <ClInclude Include="source\tools\Events\EventManager.h" />
+    <ClInclude Include="source\tools\Layers\DefaultLayer.h" />
+    <ClInclude Include="source\tools\Layers\TestLayer.h" />
+    <ClInclude Include="source\tools\LuaState.h" />
+    <ClInclude Include="source\tools\Physics\PhysicsFactory.h" />
+    <ClInclude Include="source\tools\Scenes\DefaultScene.h" />
+    <ClInclude Include="source\tools\Scenes\Scene.h" />
+    <ClInclude Include="source\tools\Scenes\SceneManager.h" />
+    <ClInclude Include="source\tools\Scenes\TestScene.h" />
+    <ClInclude Include="source\VSL\HashMap.h" />
+    <ClInclude Include="source\Rendering\Cameras\PerspectiveCamera.h" />
+    <ClInclude Include="source\Rendering\Renderables\Cube.h" />
+    <ClInclude Include="source\tools\Assets\ImageLoader.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="source\external code\imgui\imconfig.h" />
+    <ClInclude Include="source\external code\imgui\imgui.h" />
+    <ClInclude Include="source\external code\imgui\imgui_impl_glfw.h" />
+    <ClInclude Include="source\external code\imgui\imgui_impl_opengl3.h" />
+    <ClInclude Include="source\external code\imgui\imgui_internal.h" />
+    <ClInclude Include="source\external code\imgui\imstb_rectpack.h" />
+    <ClInclude Include="source\external code\imgui\imstb_textedit.h" />
+    <ClInclude Include="source\external code\imgui\imstb_truetype.h" />
+    <ClInclude Include="source\external code\stbimage\stb_image.h" />
+    <ClInclude Include="source\GUI\BatchRendererGui.h" />
+    <ClInclude Include="source\Rendering\Cameras\Camera.h" />
+    <ClInclude Include="source\Rendering\Cameras\OrthographicCamera.h" />
+    <ClInclude Include="source\Rendering\Renderables\IndexBuffer.h" />
+    <ClInclude Include="source\Rendering\Renderables\Buffer.h" />
+    <ClInclude Include="source\Rendering\Renderables\BatchRenderer.h" />
+    <ClInclude Include="source\Rendering\Renderables\Renderable.h" />
+    <ClInclude Include="source\Rendering\Renderables\Renderer2D.h" />
+    <ClInclude Include="source\Rendering\Renderables\Sprite2D.h" />
+    <ClInclude Include="source\Rendering\RenderCommands.h" />
+    <ClInclude Include="source\Rendering\ShaderProgram.h" />
+    <ClInclude Include="source\tools\Events\EventKey.h" />
+    <ClInclude Include="source\tools\Events\EventListener.h" />
+    <ClInclude Include="source\tools\Events\EventMouse.h" />
+    <ClInclude Include="source\tools\Events\Event.h" />
+    <ClInclude Include="source\tools\GuiSink.h" />
+    <ClInclude Include="source\tools\ImGui\ImGuiConsole.h" />
+    <ClInclude Include="source\tools\ImGui\ImGuiEngine.h" />
+    <ClInclude Include="source\tools\Layers\Layer.h" />
+    <ClInclude Include="source\tools\Assets\TextLoader.h" />
+    <ClInclude Include="source\VofogCore.h" />
+    <ClInclude Include="source\tools\Logging.h" />
+    <ClInclude Include="source\Vofog.h" />
+    <ClInclude Include="source\VSL\Vector.h" />
+    <ClInclude Include="source\Rendering\Window.h" />
+    <ClInclude Include="source\Rendering\Renderables\VertexArray.h" />
+    <ClInclude Include="source\vpch.h" />
+    <ClInclude Include="source\Rendering\Renderables\Texture.h" />
+    <ClInclude Include="source\VofogEntity.h" />
+    <ClInclude Include="source\VofogEntityManager.h" />
+    <ClInclude Include="source\VofogCoreScripting.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\outsourced\GLAD\src\glad.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Development|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Final|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Development|x64'">
+      </PrecompiledHeaderFile>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      </PrecompiledHeaderFile>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Final|x64'">
+      </PrecompiledHeaderFile>
+    </ClCompile>
+    <ClCompile Include="source\Entity Component System\Systems\Application\ScriptingSystem.cpp" />
+    <ClCompile Include="source\tools\Assets\ModelLoader.cpp" />
+    <ClCompile Include="source\Entity Component System\Components\HashImpl.cpp" />
+    <ClCompile Include="source\Entity Component System\Systems\Application\PhysicsSystem.cpp" />
+    <ClCompile Include="source\Entity Component System\Entity.cpp" />
+    <ClCompile Include="source\Entity Component System\EntityManager.cpp" />
+    <ClCompile Include="source\Entity Component System\Systems\Editor\MovementSystem.cpp" />
+    <ClCompile Include="source\Entity Component System\Systems\Editor\ObjectPickingSystem.cpp" />
+    <ClCompile Include="source\tools\Events\EventManager.cpp" />
+    <ClCompile Include="source\Rendering\Renderables\InternalTexture.cpp" />
+    <ClCompile Include="source\Rendering\Renderables\Material.cpp" />
+    <ClCompile Include="source\Rendering\Renderables\ShaderAbstractions\PointLight.cpp" />
+    <ClCompile Include="source\Rendering\Renderers\MeshRenderer.cpp" />
+    <ClCompile Include="source\Rendering\TextureHandler.cpp" />
+    <ClCompile Include="source\tools\Layers\DefaultLayer.cpp" />
+    <ClCompile Include="source\tools\Layers\Layer.cpp" />
+    <ClCompile Include="source\tools\Layers\TestLayer.cpp" />
+    <ClCompile Include="source\tools\LuaState.cpp" />
+    <ClCompile Include="source\tools\Physics\PhysicsFactory.cpp" />
+    <ClCompile Include="source\tools\Scenes\Scene.cpp" />
+    <ClCompile Include="source\tools\Scenes\SceneManager.cpp" />
+    <ClCompile Include="source\VofogEntity.cpp" />
+    <ClCompile Include="source\VSL\HashMap.cpp" />
+    <ClCompile Include="source\Rendering\Cameras\PerspectiveCamera.cpp" />
+    <ClCompile Include="source\tools\Assets\ImageLoader.cpp" />
+    <ClCompile Include="source\external code\imgui\imgui.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Development|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Final|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="source\external code\imgui\imgui_demo.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Development|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Final|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="source\external code\imgui\imgui_draw.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Development|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Final|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="source\external code\imgui\imgui_impl_glfw.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Development|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Final|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="source\external code\imgui\imgui_impl_opengl3.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Development|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Final|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="source\external code\imgui\imgui_widgets.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Development|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Final|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="source\GUI\BatchRendererGui.cpp" />
+    <ClCompile Include="source\Rendering\Cameras\Camera.cpp" />
+    <ClCompile Include="source\Rendering\Cameras\OrthographicCamera.cpp" />
+    <ClCompile Include="source\Rendering\Renderables\IndexBuffer.cpp" />
+    <ClCompile Include="source\Rendering\Renderables\Buffer.cpp">
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Development|x64'">vpch.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">vpch.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Final|x64'">vpch.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <ClCompile Include="source\Rendering\Renderables\BatchRenderer.cpp" />
+    <ClCompile Include="source\Rendering\Renderables\Sprite2D.cpp" />
+    <ClCompile Include="source\Rendering\ShaderProgram.cpp" />
+    <ClCompile Include="source\VofogCore.cpp" />
+    <ClCompile Include="source\tools\Logging.cpp" />
+    <ClCompile Include="source\Rendering\Window.cpp" />
+    <ClCompile Include="source\Rendering\Renderables\VertexArray.cpp" />
+    <ClCompile Include="source\vpch.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Development|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Development|x64'">vpch.h</PrecompiledHeaderFile>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">vpch.h</PrecompiledHeaderFile>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Final|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Final|x64'">vpch.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <ClCompile Include="source\Rendering\Renderables\Texture.cpp" />
+    <ClCompile Include="source\VofogEntityManager.cpp" />
+    <ClCompile Include="source\VofogCoreScripting.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\scripts\lua\LeftClickFire.lua" />
+    <None Include="resources\scripts\lua\SolTestScript.lua" />
+    <None Include="resources\scripts\lua\TestScript.lua" />
+    <None Include="resources\shaders\DEBUG\Grid.frag" />
+    <None Include="resources\shaders\DEBUG\Grid.geom" />
+    <None Include="resources\shaders\DEBUG\Grid.vert" />
+    <None Include="resources\shaders\DEBUG\BulletDrawLine2.frag" />
+    <None Include="resources\shaders\DEBUG\BulletDrawLine2.vert" />
+    <None Include="resources\shaders\CubePass.frag" />
+    <None Include="resources\shaders\CubePass.vert" />
+    <None Include="resources\shaders\DEBUG\BulletDrawLine.frag" />
+    <None Include="resources\shaders\DEBUG\BulletDrawLine.geom" />
+    <None Include="resources\shaders\DEBUG\BulletDrawLine.vert" />
+    <None Include="resources\shaders\DEBUG\DebugPicking.frag" />
+    <None Include="resources\shaders\DEBUG\DebugPicking.geom" />
+    <None Include="resources\shaders\DEBUG\DebugPicking.vert" />
+    <None Include="resources\shaders\DepthBufferViewer.frag" />
+    <None Include="resources\shaders\DepthBufferViewer.vert" />
+    <None Include="resources\shaders\DepthShader.frag" />
+    <None Include="resources\shaders\DepthShader.vert" />
+    <None Include="resources\shaders\GuiHighlightShader.geom" />
+    <None Include="resources\shaders\GuiHighlightShader.vert" />
+    <None Include="resources\shaders\GuiHighlightShader.frag" />
+    <None Include="resources\shaders\Atmosphere.frag" />
+    <None Include="resources\shaders\Atmosphere.vert" />
+    <None Include="resources\shaders\GuiOutline.frag" />
+    <None Include="resources\shaders\GuiOutline.vert" />
+    <None Include="resources\shaders\pass.frag" />
+    <None Include="resources\shaders\pass.vert" />
+    <None Include="resources\shaders\PBR.frag" />
+    <None Include="resources\shaders\PBR.vert" />
+    <None Include="resources\shaders\PostPass.frag" />
+    <None Include="resources\shaders\PostPass.vert" />
+    <None Include="resources\shaders\RenderableDefaultShader.frag" />
+    <None Include="resources\shaders\RenderableDefaultShader.vert" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Vofog.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\..\..\..\Users\Luke\Downloads\pink-v.ico" />
+    <Image Include="resources\images\brickdiffuse.png" />
+    <Image Include="resources\images\brick_heightmap.png" />
+    <Image Include="resources\images\brick_normalmap.png" />
+    <Image Include="resources\images\cheapbricks_diffuse.jpg" />
+    <Image Include="resources\images\cheapbricks_height.jpg" />
+    <Image Include="resources\images\cheapbricks_normal.jpg" />
+    <Image Include="resources\images\container.png" />
+    <Image Include="resources\images\container_specular_map.png" />
+    <Image Include="resources\images\Default.png" />
+    <Image Include="resources\images\FullPack_Atlas.jpg" />
+    <Image Include="resources\images\Gravel.png" />
+    <Image Include="resources\images\Gravel1k.png" />
+    <Image Include="resources\images\graymarble.jpg" />
+    <Image Include="resources\images\marble.jpg" />
+    <Image Include="resources\images\simple.png" />
+    <Image Include="resources\images\simple_normalmap.png" />
+    <Image Include="resources\images\Stone.jpg" />
+    <Image Include="resources\images\stone.png" />
+    <Image Include="resources\images\stonenormal.png" />
+    <Image Include="resources\images\stonewall.jpg" />
+    <Image Include="resources\images\stonewall_normal.jpg" />
+    <Image Include="resources\images\unstonewall_normal.png" />
+    <Image Include="resources\images\un_stonewall_normal.jpg" />
+    <Image Include="resources\images\vblue.png" />
+    <Image Include="resources\pink-v.ico" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -1,0 +1,3 @@
+[submodule "Vofog/outsourced/spdlog"]
+	path = Vofog/outsourced/spdlog
+	url = https://github.com/gabime/spdlog
